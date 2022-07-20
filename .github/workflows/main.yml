@@ -9,7 +9,7 @@ on:
     types:
       - opened
     # Sequence of patterns to be ignored - branches different to main
-    branches-ignore:    
+    branches:    
       - main
 # Group of jobs to be executed inside the event(s) of this workflow
 jobs:
