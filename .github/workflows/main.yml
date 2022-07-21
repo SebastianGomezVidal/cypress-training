@@ -10,7 +10,7 @@ jobs:
   # First job to be run
   cypress-run:
     # Available servers in github windows-latest, macos-latest, ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     # Sequential steps to be run
     steps:
      
