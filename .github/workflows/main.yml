@@ -1,0 +1,70 @@
+# Workflow name
+name: Continuous integration
+
+# Events that drives the workflow such as pushes, comments, etc.
+# Can be configured for more than one
+on:
+  [pull_request] 
+# Group of jobs to be executed inside the event(s) of this workflow
+jobs:
+  # First job to be run
+  cypress-run:
+    # Available servers in github windows-latest, macos-latest, ubuntu-latest
+    runs-on: ubuntu-latest
+    # Sequential steps to be run
+    steps:
+     
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event." 
+
+      - run: echo "Performing repo checkout 🔔 " 
+
+      # Get branch repository / action
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - run: echo "Performing Nodejs version check ✅ " 
+
+      # Node.js version / action
+      - name: Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: "npm"
+
+      - run: echo "Performing node dependencies check 🩺 " 
+
+      # Installing node dependencies / script shell
+      - name: Install
+        run: npm ci
+
+      - run: echo "Performing static validation 🕵️ " 
+
+      # Running static validation / script shell
+      - name: Code style
+        run: npm run lint
+
+      - run: echo "Executing testcases 🔥 🔥 " 
+
+      # Running tests in chrome / script shell
+      - name: Run cypress tests with chrome
+        uses: cypress-io/github-action@v4
+        timeout-minutes: 3
+        with:
+          browser: chrome
+          headed: true
+
+      # Running tests in firefox / script shell
+      - name: Run cypress tests with firefox
+        uses: cypress-io/github-action@v4
+        timeout-minutes: 3
+        with:
+          browser: firefox
+          headed: false
+
+      # Running tests in edge / script shell
+      - name: Run cypress tests with edge
+        uses: cypress-io/github-action@v4
+        timeout-minutes: 3
+        with:
+          browser: edge
+          headed: false
