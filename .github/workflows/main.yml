@@ -4,13 +4,7 @@ name: Continuous integration
 # Events that drives the workflow such as pushes, comments, etc.
 # Can be configured for more than one
 on:
-  pull_request:
-    # It can have multiples types such as created, opened, etc.
-    types:
-      - opened
-    # Sequence of patterns to be ignored - branches different to main
-    branches:    
-      - main
+  [pull_request] 
 # Group of jobs to be executed inside the event(s) of this workflow
 jobs:
   # First job to be run
