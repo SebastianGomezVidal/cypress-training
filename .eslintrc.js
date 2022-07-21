@@ -17,7 +17,7 @@ module.exports = {
   ],
   "rules": {
     "quotes": ["error", "double"],
-    "eslint linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "windows"],
     "cypress/no-assigning-return-values": "error",
     "cypress/no-unnecessary-waiting": "error",
     "cypress/assertion-before-screenshot": "warn",
