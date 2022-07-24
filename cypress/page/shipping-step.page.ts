@@ -2,9 +2,9 @@ import { PaymentPage } from "../page/index";
 
 class ShippingPage {
 
-    private shippingPageHeader: string              = "h1[class='page-heading']"
-    private termsCheckBox: string                   = "input[id='cgv']"
-    private proceedToPaymentCheckoutButton: string  = "button[name='processCarrier'] span"
+    private shippingPageHeader: string = "h1[class='page-heading']"
+    private termsCheckBox: string = "input[id='cgv']"
+    private proceedToPaymentCheckoutButton: string = "button[name='processCarrier'] span"
     
     public isUserOnShippingPageValidation(): ShippingPage {
         cy.get(this.shippingPageHeader).contains('Shipping')

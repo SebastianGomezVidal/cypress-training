@@ -208,8 +208,5 @@ cypress/e2e/1-getting-started/*
 cypress/e2e/2-advanced-examples/*
 cypress/e2e/google.cy.ts
 
-# Igonring .env
-.env
-
 # Ignoring .DS_Store
 .DS_Store

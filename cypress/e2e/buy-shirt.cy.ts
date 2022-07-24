@@ -1,4 +1,4 @@
-import {MenuContentPage, PaymentPage} from "../page/index";
+import {MenuContentPage} from "../page/index";
 
 describe("Buy a t-shirt", () => {
   let buyer: MenuContentPage;
@@ -15,26 +15,17 @@ describe("Buy a t-shirt", () => {
     buyer.
         visitMenuContentPage().
         clickOnTShirtMenu().
-        isUserOnProductsPageValidation().
         addTShirtToCart().
         passToShoppingCartPage().
-        isUserOnShoppingCartPageValidation().
         passToLogin().
-        isUserOnLoginPageValidation().
         entersUsernameAndPassword(user.email, user.password).
         passToAddressPage().
-        isUserOnAddressPageValidation().
         passToShippingPage().
-        isUserOnShippingPageValidation().
         acceptsServiceTerms().
         passToPaymentPage().
-        isUserOnPaymentPageValidation().
         selectsPaymentOption().
-        confirmOrder();
-
-    cy.then(()=> {
-      expect(PaymentPage.confirmationMessage).to.equal("Your order on My Store is complete.");
-    });
+        confirmOrder().
+        getConfirmationMessageValidation();
   });
 });
 

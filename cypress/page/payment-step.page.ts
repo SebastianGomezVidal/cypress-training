@@ -1,10 +1,10 @@
 class PaymentPage {
 
-    private paymentPageHeader: string   = "h1[class='page-heading']"
-    private paymentTypeButton: string   = ".bankwire"
-    private confirmOrderButton: string  = "#cart_navigation > .button > span"
-    private succesOrderLegend: string   = "#center_column > div > p > strong"
-    public static confirmationMessage: string
+    private paymentPageHeader: string = "h1[class='page-heading']"
+    private paymentTypeButton: string = ".bankwire"
+    private confirmOrderButton: string = "#cart_navigation > .button > span"
+    private succesOrderLegend: string = "#center_column > div > p > strong"
+    //public static confirmationMessage: string
 
     public isUserOnPaymentPageValidation(): PaymentPage {
         cy.get(this.paymentPageHeader).contains('Please choose your payment method')
@@ -16,11 +16,13 @@ class PaymentPage {
         return this
     }
 
-    public confirmOrder():void {
+    public confirmOrder(): PaymentPage {
         cy.get(this.confirmOrderButton).click()
-        cy.get(this.succesOrderLegend).then((element) => {
-            PaymentPage.confirmationMessage = element.text()
-        })   
+        return this
+    }   
+
+    public getConfirmationMessageValidation(): void {
+        cy.get(this.succesOrderLegend).should('have.text', "Your order on My Store is complete.")
     }
     
 }
