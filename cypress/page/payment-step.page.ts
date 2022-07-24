@@ -1,17 +1,10 @@
 class PaymentPage {
 
-    private paymentPageHeader: string
-    private paymentTypeButton: string
-    private confirmOrderButton: string
-    private succesOrderLegend: string
+    private paymentPageHeader: string   = "h1[class='page-heading']"
+    private paymentTypeButton: string   = ".bankwire"
+    private confirmOrderButton: string  = "#cart_navigation > .button > span"
+    private succesOrderLegend: string   = "#center_column > div > p > strong"
     public static confirmationMessage: string
-
-    constructor() {
-        this.paymentPageHeader = "h1[class='page-heading']"
-        this.paymentTypeButton = ".bankwire"
-        this.confirmOrderButton = "#cart_navigation > .button > span"
-        this.succesOrderLegend = "#center_column > div > p > strong"
-    }
 
     public isUserOnPaymentPageValidation(): PaymentPage {
         cy.get(this.paymentPageHeader).contains('Please choose your payment method')

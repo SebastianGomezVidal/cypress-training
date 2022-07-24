@@ -2,18 +2,11 @@ import { AddressPage } from "../page/index";
 
 class LoginPage {
 
-    private loginPageHeader: string
-    private emailTextField: string
-    private passwordTextField: string
-    private signInPageButton: string
-
-    constructor() {
-        this.loginPageHeader = "h1[class='page-heading']"
-        this.emailTextField = "input[id='email']"
-        this.passwordTextField = "input[id='passwd']"
-        this.signInPageButton = "button[id='SubmitLogin'] span"
-    }
-
+    private loginPageHeader: string     = "h1[class='page-heading']"
+    private emailTextField: string      = "input[id='email']"
+    private passwordTextField: string   = "input[id='passwd']"
+    private signInPageButton: string    = "button[id='SubmitLogin'] span"
+    
     public isUserOnLoginPageValidation(): LoginPage {
         cy.get(this.loginPageHeader).contains('Authentication')
         return this

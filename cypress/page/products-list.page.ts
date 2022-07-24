@@ -2,17 +2,10 @@ import { ShoppingCartPage } from "../page/index";
 
 class ProductsPage {
 
-    private ProductsPageHeader: string
-    private addToCartButton: string
-    private proceedToShoppingCartCheckoutButton: string
-
-    constructor() {
-        this.ProductsPageHeader = "h1 > span[class = 'cat-name']"
-        this.addToCartButton = "#center_column a.button.ajax_add_to_cart_button.btn.btn-default"
-        this.proceedToShoppingCartCheckoutButton = "[style*='display: block;'] .button-container > a"
-    }
-
-
+    private ProductsPageHeader: string                  = "h1 > span[class = 'cat-name']"
+    private addToCartButton: string                     = "#center_column a.button.ajax_add_to_cart_button.btn.btn-default"
+    private proceedToShoppingCartCheckoutButton: string = "[style*='display: block;'] .button-container > a"
+    
     public isUserOnProductsPageValidation(): ProductsPage {
         cy.get(this.ProductsPageHeader).contains('T-shirts ')
         return this
