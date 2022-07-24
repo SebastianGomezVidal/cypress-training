@@ -209,3 +209,6 @@ cypress/e2e/2-advanced-examples/*
 
 # Igonring .env
 .env
+
+# Ignoring .DS_Store
+.DS_Store
