@@ -25,8 +25,6 @@ describe("Buy a t-shirt", () => {
         passToPaymentPage().
         selectsPaymentOption().
         confirmOrder().
-        getConfirmationMessageValidation();
+        assertConfirmationMessage();
   });
 });
-
-

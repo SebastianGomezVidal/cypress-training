@@ -21,7 +21,7 @@ class PaymentPage {
         return this
     }   
 
-    public getConfirmationMessageValidation(): void {
+    public assertConfirmationMessage(): void {
         cy.get(this.succesOrderLegend).should('have.text', "Your order on My Store is complete.")
     }
     
