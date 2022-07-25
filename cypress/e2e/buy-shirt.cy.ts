@@ -3,6 +3,7 @@ import {MenuContentPage} from "../page/index";
 describe("Buy a t-shirt", () => {
   let buyer: MenuContentPage;
   let user: { email: string, password: string;};
+  const valMessage = "Your order on My Store is complete.";
 
   before( () =>{
     buyer = new MenuContentPage();
@@ -25,6 +26,6 @@ describe("Buy a t-shirt", () => {
         passToPaymentPage().
         selectsPaymentOption().
         confirmOrder().
-        assertConfirmationMessage();
+        assertConfirmationMessage(valMessage);
   });
 });
